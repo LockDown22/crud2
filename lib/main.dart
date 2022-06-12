@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextField(
                   keyboardType:
-                  const TextInputType.numberWithOptions(decimal: true),
+                  const TextInputType.numberWithOptions(),
                   controller: _dienthoaiController,
                   decoration: const InputDecoration(
                     labelText: 'Sdt',
@@ -98,8 +98,8 @@ class _HomePageState extends State<HomePage> {
                     final String diachi = _diachiController.text;
                     final String email = _emailController.text;
                     
-                    final double? sdt =
-                    double.tryParse(_dienthoaiController.text);
+                    final int? sdt =
+                    int.tryParse(_dienthoaiController.text);
                     if (sdt != null) {
                         await _employee.add({"hoten": name,"diachi":diachi,"gioitinh": gioitinh,"email":email,"mans":mans ,"dienthoai": sdt});
 
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextField(
                   keyboardType:
-                      const TextInputType.numberWithOptions(decimal: true),
+                      const TextInputType.numberWithOptions(),
                   controller: _dienthoaiController,
                   decoration: const InputDecoration(
                     labelText: 'dienthoai',
@@ -184,8 +184,8 @@ class _HomePageState extends State<HomePage> {
                     final String gioitinh = _gioitinhController.text;
                     final String diachi = _diachiController.text;
                     final String email = _emailController.text;
-                    final double? sdt =
-                        double.tryParse(_dienthoaiController.text);
+                    final int? sdt =
+                        int.tryParse(_dienthoaiController.text);
                     if (sdt != null) {
 
                         await _employee
@@ -239,22 +239,19 @@ class _HomePageState extends State<HomePage> {
                     Text(documentSnapshot['diachi']),
                     Text(documentSnapshot['email']),
                     Text(documentSnapshot['dienthoai'].toString()),
-                    Container(
-                     
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                        IconButton(
-                                 icon: const Icon(Icons.edit),
-                                onPressed: () =>
-                                   _update(documentSnapshot)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                       IconButton(
-                                 icon: const Icon(Icons.delete),
-                                 onPressed: () =>
-                                     _delete(documentSnapshot.id))
+                               icon: const Icon(Icons.edit),
+                              onPressed: () =>
+                                 _update(documentSnapshot)),
+                    IconButton(
+                               icon: const Icon(Icons.delete),
+                               onPressed: () =>
+                                   _delete(documentSnapshot.id))
 
-                      ],),
-                    )
+                    ],)
                     
                   
                   ],
@@ -294,7 +291,7 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
 
       ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat
     );
   }
 }
