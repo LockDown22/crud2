@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Firebase Firestore')),
+        title: const Center(child: Text('CRUD with Firebase Firestore')),
       ),
       body: StreamBuilder(
         stream: _employee.snapshots(),
